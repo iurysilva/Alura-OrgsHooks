@@ -3,8 +3,5 @@ import Top from "./components/Top";
 import Producers from "./components/Producers";
 
 export default function Home(){
-    return <>
-    <Top/>
-    <Producers/>
-    </>
+    return <Producers top={Top}/>
 }

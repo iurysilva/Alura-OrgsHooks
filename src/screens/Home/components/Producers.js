@@ -1,12 +1,39 @@
-import React, {useEffect} from "react";
-import { Text } from "react-native";
+import React, {useEffect, useState} from "react";
+import { FlatList, Text, StyleSheet } from "react-native";
 import { loadProducers } from "../../../services/loadData";
+import Top from "./Top";
 
-export default function Producers(){
+export default function Producers({top: Top}){
+    const [title, setTitle] = useState('');
+    const [list, setList] = useState('');
+
     useEffect(() => {
         const content = loadProducers();
-        console.log(content)
+        setTitle(content.title);
+        setList(content.list);
     }, []);
 
-    return <Text>Producers</Text>
+    const TopList = () => {
+        return <>
+        <Top/>
+        <Text style={styles.title}>{title}</Text>
+        </>
+        
+    }
+    return <FlatList
+        data={list}
+        renderItem={({item: {name}}) => <Text>{name}</Text>}
+        keyExtractor={({name}) => name}
+        ListHeaderComponent={TopList}/>
 }
+
+const styles = StyleSheet.create({
+    title: {
+        fontSize: 20,
+        lineHeight: 32,
+        marginHorizontal: 16,
+        marginTop: 16,
+        fontWeight: "bold",
+        color: '#464646',
+    }
+})
