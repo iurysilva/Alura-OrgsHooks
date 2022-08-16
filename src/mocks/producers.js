@@ -44,3 +44,5 @@ const producers = {
         
     ]
 }
+
+export default producers;
