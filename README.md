@@ -1,10 +1,10 @@
-# Providers list in the Orgs Home
+# Producers list in the Orgs Home
 
 Alura React Native Course project: Using and creating Hooks.
 
 ## 🔨 Project functionalities
 
-In this project we'll create a Home screen of natural products for the e-commerce called Orgs. In this screen, the providers will be listed statically. 
+In this project we'll create a Home screen of natural products for the e-commerce called Orgs. In this screen, the producers will be listed statically. 
 
 <img src="https://user-images.githubusercontent.com/9091491/131163034-18cc72ba-8405-4676-a755-a6280d505fd1.gif" width="300" />
 
