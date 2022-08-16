@@ -1,8 +1,8 @@
-import producers from "./../mocks/producers"
+import producers from "../mocks/producers"
 import top from "../mocks/top"
 
 export const loadProducers = () => {
-    return producers
+    return producers;
 }
 
 export const loadTop = () => {
