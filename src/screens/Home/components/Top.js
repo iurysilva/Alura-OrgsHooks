@@ -1,13 +1,26 @@
 import React from "react";
 import { Text, View, Image, StyleSheet } from "react-native";
 import logo from "../../../assets/logo.png"
+import { loadTop } from "../../../services/loadData";
 
-export default function Top(){
-    return <View style={styles.top}>
+class Top extends React.Component{
+    updateTop(){
+        const content = loadTop();
+        console.log(content)
+    }
+
+    componentDidMount(){
+        console.log("Top Mounted");
+        this.updateTop();
+    }
+
+    render(){
+        return <View style={styles.top}>
         <Image source={logo} style={styles.image}/>
             <Text style={styles.welcome}>Hello Natalia</Text>
             <Text style={styles.subtitle}>Find the best providers</Text>
         </View>
+    }
 }
 
 const styles = StyleSheet.create({
@@ -30,3 +43,5 @@ const styles = StyleSheet.create({
         lineHeight: 26,
     }
 });
+
+export default Top;
