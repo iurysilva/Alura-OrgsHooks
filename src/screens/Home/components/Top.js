@@ -4,21 +4,27 @@ import logo from "../../../assets/logo.png"
 import { loadTop } from "../../../services/loadData";
 
 class Top extends React.Component{
+    state = {
+        top: {
+            welcome: '',
+            subtitle: '',
+        }
+    }
+
     updateTop(){
         const content = loadTop();
-        console.log(content)
+        this.setState({top: content})
     }
 
     componentDidMount(){
-        console.log("Top Mounted");
         this.updateTop();
     }
 
     render(){
         return <View style={styles.top}>
         <Image source={logo} style={styles.image}/>
-            <Text style={styles.welcome}>Hello Natalia</Text>
-            <Text style={styles.subtitle}>Find the best providers</Text>
+            <Text style={styles.welcome}>{this.state.top.welcome}</Text>
+            <Text style={styles.subtitle}>{this.state.top.subtitle}</Text>
         </View>
     }
 }
