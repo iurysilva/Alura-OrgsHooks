@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { FlatList, Text, StyleSheet } from "react-native";
 import { loadProducers } from "../../../services/loadData";
-import Top from "./Top";
 
 export default function Producers({top: Top}){
     const [title, setTitle] = useState('');
