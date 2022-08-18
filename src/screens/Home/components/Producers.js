@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import { FlatList, Text, StyleSheet } from "react-native";
 import Producer from "./Producer";
 import useProducers from "../../../hooks/useProducers";
 
+const sortProducers = (list) => {
+    return list.sort((a, b) => (a.distance > b.distance) ? 1  : -1)
+}
 
 export default function Producers({top: Top}){
     const [title, list] = useProducers();
@@ -15,7 +18,7 @@ export default function Producers({top: Top}){
         
     }
     return <FlatList
-        data={list}
+        data={sortProducers(list)}
         renderItem={({item}) => <Producer {...item}/>}
         keyExtractor={({name}) => name}
         ListHeaderComponent={TopList}/>
